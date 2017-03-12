@@ -6,7 +6,7 @@ function Bullet(x, y, r){
 
 	this.show = function (){
 		noStroke();
-		fill(255, 0, 255);
+		fill(255, 255, 255);
 		ellipse(this.x, this.y, this.r*2, this.r*2);
 	}
 
@@ -30,6 +30,8 @@ function Bullet(x, y, r){
 	this.hitsObstacle = function(Obstacle){
 		var d = dist(this.x, this.y, Obstacle.x, Obstacle.y)
 		if (d < this.r + Obstacle.height / 2) {
+			return true;
+		} else if (d < this.r + Obstacle.width / 2){
 			return true;
 		} else {
 			return false;

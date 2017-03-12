@@ -4,11 +4,11 @@ function Enemy(x, y) {
 	this.r = 30;
 	this.toDestroy = false;
 
-	this.xdir = 1;
+	this.xdir = 0.5;
 
 
 	this.show = function (){
-		fill(255, 0 ,255);
+		fill(255, 255, 255);
 		ellipse(this.x, this.y, this.r*2, this.r*2);
 	}
 

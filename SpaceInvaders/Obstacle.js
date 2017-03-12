@@ -7,7 +7,7 @@ function Obstacle(x, y){
 
 	this.show = function(){
 		noStroke();
-		fill(120, 0, 120);
+		fill(0, 255, 0);
 		rectMode(CENTER);
 		rect(this.x, this.y, this.width, this.height);
 	}

@@ -22,8 +22,8 @@ function setup() {
 
 }
 
-function draw() {
-	background(51);
+function draw() {	
+	background(0);
 	ship.show();
 
 	// Show and move every bullet
@@ -40,13 +40,13 @@ function draw() {
 		//Check if any of the bullets hit an obstacle
 		for(var k = 0; k < obstacles.length; k++){
 			if (bullets[i].hitsObstacle(obstacles[k])) {				
-				obstacles[k].damage();	
 				bullets[i].delete();		
 			} 		
 		}
 	}
 
 	var edge = false;
+	var obstacleHit = false;
 	
 	// Showing and moving every enemy
 	for(var i = 0; i < enemies.length; i++) {
@@ -58,6 +58,12 @@ function draw() {
 			edge = true;
 		} else if (enemies[i].x - enemies[i].r < 0) {
 			edge = true;
+		}
+
+		//checking if an enemy has hit an obstacle
+		for (var j = 0; j < obstacles.length; j++){
+			if(enemies[i].y + enemies[i].r >= obstacles[j].y + obstacles[j].height){
+			}
 		}
 	}
 
@@ -91,10 +97,14 @@ function draw() {
 
 	if (keyIsDown(RIGHT_ARROW)){
 		ship.x +=5;
+		if(ship.x + 20 / 2 <= 0){
+			ship.x = 0;
+		}
 	}
 	if (keyIsDown(LEFT_ARROW)){
 		ship.x -=5;
 	}
+
 }
 
 function keyPressed(){
